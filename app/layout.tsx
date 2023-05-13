@@ -1,25 +1,27 @@
-import Navbar from './components/navbar/Navbar'
-import './globals.css'
-import { Nunito } from 'next/font/google'
+import Modal from './components/modals/Modal';
+import Navbar from './components/navbar/Navbar';
+import './globals.css';
+import { Nunito } from 'next/font/google';
 
-const nunito = Nunito({ subsets: ['latin'] })
+const nunito = Nunito({ subsets: ['latin'] });
 
 export const metadata = {
   title: 'Airbnb',
   description: 'Airbnb clone',
-}
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en">
       <body className={nunito.className}>
+        <Modal isOpen title="Yo!" />
         <Navbar />
         {children}
       </body>
     </html>
-  )
+  );
 }
