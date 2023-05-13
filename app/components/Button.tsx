@@ -30,7 +30,7 @@ const Button: React.FC<ButtonProps> = ({
       } ${
         small
           ? 'py-1 text-sm font-light border-[1px]'
-          : 'py-3 text-md font-semibold boder-2'
+          : 'py-3 text-md font-semibold border-2'
       } `}>
       {Icon && <Icon size={24} className="absolute left-4 top-3" />}
       {label}
