@@ -38,16 +38,24 @@ const LoginModal = () => {
     signIn('credentials', {
       ...data,
       redirect: false,
-    }).then((res) => {
+    }).then((callback) => {
       setIsLoading(false);
-      if (res?.ok) {
-        toast.success('Successfully logged in');
+
+      if (callback?.ok) {
+        toast.success('Logged in');
         router.refresh();
         loginModal.onClose();
       }
-      if (res?.error) toast.error('Something went wrong: ' + res.error);
+
+      if (callback?.error)
+        toast.error('Somthing went wrong: ' + callback.error);
     });
   };
+
+  const onToggle = useCallback(() => {
+    loginModal.onClose();
+    registerModal.onOpen();
+  }, [loginModal, registerModal]);
 
   const bodyContent = (
     <div className="flex flex-col gap-4">
@@ -87,15 +95,16 @@ const LoginModal = () => {
         icon={AiFillGithub}
         onClick={() => signIn('github')}
       />
-      <div className="text-neutral text-center mt-4 font-light">
-        <div className="flex flex-row items-center justify-center gap-2">
-          <div>Already have an account?</div>
-          <div
-            onClick={loginModal.onClose}
+      <div className="text-neutral-500 text-center mt-4 font-light">
+        <p>
+          First time using Airbnb?
+          <span
+            onClick={onToggle}
             className="text-neutral-800 cursor-pointer hover:underline">
-            Log in
-          </div>
-        </div>
+            {' '}
+            Create an account
+          </span>
+        </p>
       </div>
     </div>
   );
