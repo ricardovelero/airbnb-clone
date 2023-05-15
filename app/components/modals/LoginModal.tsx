@@ -45,7 +45,7 @@ const LoginModal = () => {
         router.refresh();
         loginModal.onClose();
       }
-      if (res?.error) toast.error(res.error);
+      if (res?.error) toast.error('Something went wrong: ' + res.error);
     });
   };
 
@@ -79,13 +79,13 @@ const LoginModal = () => {
         outline
         label="Continue with Google"
         icon={FcGoogle}
-        onClick={() => {}}
+        onClick={() => signIn('google')}
       />
       <Button
         outline
         label="Continue with Github"
         icon={AiFillGithub}
-        onClick={() => {}}
+        onClick={() => signIn('github')}
       />
       <div className="text-neutral text-center mt-4 font-light">
         <div className="flex flex-row items-center justify-center gap-2">
@@ -104,7 +104,7 @@ const LoginModal = () => {
     <Modal
       disabled={isLoading}
       isOpen={loginModal.isOpen}
-      title="Log in"
+      title="Login"
       actionLabel="Continue"
       onClose={loginModal.onClose}
       onSubmit={handleSubmit(onSubmit)}
