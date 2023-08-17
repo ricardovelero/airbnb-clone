@@ -1,4 +1,4 @@
-export const dynamic = 'error';
+export const dynamic = 'force-static';
 
 import Container from '@/app/components/Container';
 import ListingCard from '@/app/components/listings/ListingCard';
