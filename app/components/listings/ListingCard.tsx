@@ -55,7 +55,7 @@ const ListingCard: React.FC<ListingCarProps> = ({
     const end = new Date(reservation.endDate);
 
     return format(start, 'PP') + ' - ' + format(end, 'PP');
-  }, []);
+  }, [reservation]);
 
   return (
     <div
