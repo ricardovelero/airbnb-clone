@@ -1,6 +1,5 @@
 'use client';
 
-import axios from 'axios';
 import { AiFillGithub } from 'react-icons/ai';
 import { FcGoogle } from 'react-icons/fc';
 import { useCallback, useState } from 'react';
@@ -48,7 +47,7 @@ const LoginModal = () => {
       }
 
       if (callback?.error)
-        toast.error('Somthing went wrong: ' + callback.error);
+        toast.error('Something went wrong: ' + callback.error);
     });
   };
 
